@@ -1,22 +1,15 @@
 import { useState } from "react";
-import "./App.css"; // We will use this for styling
-
+import "./App.css"; 
 function App() {
-  // State to store the list of to-do items
+  
   const [todos, setTodos] = useState([]);
-
-  // State to store the value of the input field
   const [newTodo, setNewTodo] = useState("");
-
-  // Function to handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the page from refreshing
-    if (!newTodo) return; // Don't add empty todos
+    e.preventDefault(); 
+    if (!newTodo) return; 
 
-    // Add the new to-do to the list
     setTodos([...todos, newTodo]);
 
-    // Clear the input field after adding
     setNewTodo("");
   };
 
@@ -25,7 +18,7 @@ function App() {
       <header className="App-header">
         <h1>My To-Do List</h1>
 
-        {/* Form to add a new to-do */}
+        
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -36,7 +29,7 @@ function App() {
           <button type="submit">Add</button>
         </form>
 
-        {/* List of to-dos */}
+       
         <ul>
           {todos.map((todo, index) => (
             <li key={index}>{todo}</li>
